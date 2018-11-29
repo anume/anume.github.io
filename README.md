@@ -1,2 +1,2 @@
 # anume.github.io
-sublime todo scripts and shortcuts
+sublime todo macros and shortcuts
