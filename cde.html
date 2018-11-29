@@ -1,0 +1,2752 @@
+
+<h3>cde.JSON-tmLanguage</h3>
+<xmp>
+{
+    "patterns": [
+        {
+            "name": "tag.brackets", 
+            "match": "(-> ?)?\\[[^\\[]+]"
+        }, 
+        {
+            "name": "heading.separator", 
+            "match": "(--|==|↑|↓)+.*"
+        }, 
+        {
+            "name": "tag", 
+            "match": "(?<=[\\s]|^)#(\"[^\"]+\"|[\\w]+)"
+        }, 
+        {
+            "comment": "([^\\w]|^)# .*$", 
+            "name": "tag.line", 
+            "match": "(?<=[\\s]|^)##([^:\\n]*|.*$)"
+        }, 
+        {
+            "name": "string", 
+            "match": "\"[^\"]+\""
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match": "((: )|(^\\s*))(>)",
+            "captures": 
+            {
+                "4": { "name": "future" }
+            }
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match2": "((: )|(^\\s*))(=.*)",
+            "match": "((: )|(^\\s*))(=)",
+            "captures": 
+            {
+                "4": { "name": "current" }
+            }
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match": "((: )|(^\\s*))([~\\!/<].*)",
+            "captures": 
+            {
+                "4": { "name": "prio.low" }
+            }
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match2": "((: )|(^\\s*))()",
+            "captures": 
+            {
+                "4": { "name": "done" }
+            }
+        }, 
+        {
+            "name": "future.assign", 
+            "match": "(?<=[\\s]|^)\\$(\"[^\"]+\"|[\\w]+)"
+        }, 
+        {
+            "name": "date.ongo", 
+            "match": "PRGO-[\\d]*"
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match3": "((: )|(^\\s*))(\\$)",
+            "captures": 
+            {
+                "4": { "name": "hide.future.assign" }
+            }
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match": "((: )|(^\\s*))(\\*.*)",
+            "captures": 
+            {
+                "4": { "name": "prio.high.star" }
+            }
+        },         
+        {
+            "name": "tell", 
+            "match": "\\bTELL\\b"
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match": "((: )|(^\\s*))(@)",
+            "captures": 
+            {
+                "4": { "name": "future.tell" }
+            }
+        }, 
+        {
+            "name": "prio.high.word", 
+            "match": "\\bHI\\b"
+        }, 
+        {
+            "name": "date.ongo", 
+            "match": "\\bONGO\\b"
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match": "((: )|(^\\s*))(\\+.*)",
+            "captures": 
+            {
+                "4": { "name": "good" }
+            }
+        }, 
+        {
+            "name": "dummy", 
+            "match": "((: )|(^\\s*))(\\?.*)",
+
+            "captures": 
+            {
+                "4": { "name": "future.ask" }
+            }
+        }, 
+        {
+            "name": "dummy", 
+            "match": "((: )|(^\\s*))(\\?|%.*)",
+
+            "captures": 
+            {
+                "4": { "name": "bad" }
+            }
+        }, 
+        {
+            "name": "prio.low.word", 
+            "match": "\\bLO\\b"
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "((: )|(^\\s*))(\\?|-)",
+            "match": "((: )|(^\\s*))(\\?)",
+            "captures": 
+            {
+                "4": { "name": "prio.low.sym" }
+            }
+        }, 
+        {
+            "name": "note", 
+            "match": "\\bNOTE\\b",
+            "match4": "(?<=[\\s]|^)\\|[^#\\[]*",
+            "match3": "\\s*\\|[^#\\[]*",
+            "match2": "(?!^|: )\\s*\\|[^#\\[]*"
+        }, 
+        {
+            "name": "not", 
+            "match": "\\bNOT\\b"
+        }, 
+        {
+            "name": "bad", 
+            "match": "\\b(BAD|BUG|bug|Bug)\\b"
+        }, 
+        {
+            "name": "fix", 
+            "match": "\\b[Ff][Ii][Xx](ed|ED)?\\b"
+        }, 
+        {
+            "name": "good", 
+            "match": "\\bGOOD\\b"
+        }, 
+        {
+            "name": "done.big", 
+            "match": "\\bDONE\\b"
+        }, 
+        {
+            "name": "wait", 
+            "match": "\\bWAIT\\b",
+            "match2": "((?<=(: ))|^\\s*)WAIT "
+        }, 
+        {
+            "name": "date.daily", 
+            "match": "\\b(YEST|PAST)\\b"
+        }, 
+        {
+            "name": "date.due", 
+            "match": "\\b(DUE)\\b"
+        }, 
+        {
+            "name": "dummy", 
+            "match2": "(^\\s*)(\\+) ",
+            "match": "((: )|(^\\s*))(£) ",
+            "captures": 
+            {
+                "4": { "name": "priv" }
+            }
+        }, 
+        {
+            "name": "priv", 
+            "match": "(?<=[\\s]|^)PRI ([^:\\n]*|.*$)"
+        }, 
+        {
+            "name": "date.line", 
+            "match": "^([A-Za-z]{3} [0-3][0-9] [A-Za-z]{3} 20[0-1][0-9]).*\\n",
+            "captures": 
+            {
+                "1": { "name": "date.daily" }
+            }
+        }, 
+        {
+            "name": "date.cde", 
+            "match": "[A-Za-z]{3} [0-3][0-9] [A-Za-z]{3} 20[0-1][0-9]"
+        }, 
+        {
+            "name": "date.iso", 
+            "match": "\\d{4}-\\d{1,2}-\\d{1,2}([- ][a-zA-Z]{3}\\b)?"
+        }, 
+        {
+            "name": "time.day", 
+            "match": "\\d+\\.?\\d* day"
+        }, 
+        {
+            "name": "date.compact", 
+            "match": "20[0-1][0-9][a-zA-Z]{3}\\d{2}"
+        }, 
+        {
+            "name": "time", 
+            "match": "\\d{2}:\\d{2}"
+        }, 
+        {
+            "name": "constant.numeric", 
+            "match": "(?<![a-zA-Z])[-+]?[0-9]*\\.?[0-9]+(?![a-zA-Z])"
+        }, 
+        {
+            "comment": "/((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\\+\\$,\\w]+@)[A-Za-z0-9.-]+)((?:\\/[\\+~%\\/.\\w-_]*)?\\??(?:[-\\+=&;%@.\\w_]*)#?(?:[\\w]*))?)/", 
+            "name": "url", 
+            "match": "((?:https?|ftp|file)://\\S+)"
+        }
+    ], 
+    "uuid": "7b11100b-7189-4693-a1f6-f088d54f145d", 
+    "fileTypes": [
+        "cde"
+    ], 
+    "name": "cde notes", 
+    "scopeName": "source.cde"
+}</xmp>
+
+<h3>cde.JSON-tmTheme</h3>
+<xmp>
+{
+    "semanticClass": "theme.dark.cde", 
+    "uuid": "5EAF4173-5DDE-4D64-A1E8-C1671C7EE339", 
+    "name": "cde", 
+    "colorSpaceName": "sRGB", 
+    "settings": [
+        {
+            "settings": {
+                "bracketContentsForeground": "#666666", 
+                "caret": "#ff0000", 
+                "caret2": "#ff00ff", 
+                "gutterForeground": "#666666", 
+                "findHighlightForeground": "#ffffff", 
+                "findHighlight": "#ff00ff", 
+                "bracketContentsOptions": "underline", 
+                "foreground": "#eeeeee", 
+                "bracketsForeground": "#00aaff", 
+                "lineHighlight": "#223344", 
+                "bracketsOptions": "underline", 
+                "inactiveSelection": "#aaaa33", 
+                "gutter": "#222222", 
+                "tagsOptions": "stippled_underline", 
+                "activeGuide": "#ff00ff", 
+                "background": "#333333", 
+                "inactiveSelectionForeground": "#000000", 
+                "selection": "#550055", 
+                "selectionForeground": "#ffffff", 
+                "selectionBorder": "#ff00ff", 
+                "invisibles": "#3B3A32"
+            }
+        }, 
+        {
+            "scope": "priv", 
+            "name": "priv", 
+            "settings": {
+                "foreground": "#ffffff",
+                "background": "#dd3300"
+            }
+        }, 
+        {
+            "scope": "bad", 
+            "name": "bad", 
+            "settings": {
+                "fontStyle": "bold", 
+                "foreground": "#cc3311"
+            }
+        }, 
+        {
+            "scope": "fix", 
+            "name": "fix", 
+            "settings": {
+                "background": "#003300",
+                "foreground": "#33ee33"
+            }
+        }, 
+        {
+            "scope": "good", 
+            "name": "good", 
+            "settings": {
+                "fontStyle": "bold", 
+                "foreground": "#77bb00"
+            }
+        }, 
+        {
+            "scope": "wait", 
+            "name": "wait", 
+            "settings": {
+                "foreground": "#000000", 
+                "background": "#993322",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "futureX", 
+            "name": "FutureX", 
+            "settings": {
+                "background": "#88bbee",
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "future", 
+            "name": "Future", 
+            "settings": {
+                "foreground": "#aaccff",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "current", 
+            "name": "Current", 
+            "settings": {
+                "background": "#114422",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "note", 
+            "name": "note", 
+            "settings": {
+                "background": "#668866",
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "done", 
+            "name": "Done", 
+            "settings": {
+                "background": "#777755",
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "done.big", 
+            "name": "Done.big", 
+            "settings": {
+                "background": "#003300",
+                "foreground": "#33ee33",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "not", 
+            "name": "not", 
+            "settings": {
+                "background": "#333333",
+                "foreground": "#cc3311",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "heading", 
+            "name": "Heading", 
+            "settings": {
+                "fontStyle": "normal", 
+                "background": "#113333",
+                "foreground": "#99ffff"
+            }
+        }, 
+        {
+            "scope": "url", 
+            "name": "url", 
+            "settings": {
+                "foreground": "#4477dd", 
+                "fontStyle": "underline", 
+                "background2": "#000066"
+            }
+        }, 
+        {
+            "scope": "date.line", 
+            "name": "Date", 
+            "settings": {
+                "foreground": "#44ffff", 
+                "background": "#333344",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "date", 
+            "name": "Date", 
+            "settings": {
+                "foreground": "#228888", 
+                "background2": "#333333",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "date.daily", 
+            "name": "date.daily", 
+            "settings": {
+                "background": "#337777", 
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "date.ongo", 
+            "name": "date.ongo", 
+            "settings": {
+                "background": "#33aadd", 
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "date.due", 
+            "name": "date.due", 
+            "settings": {
+                "background": "#33ddff", 
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "time", 
+            "name": "time", 
+            "settings": {
+                "foreground": "#228888", 
+                "background": "#333344",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "time.day", 
+            "name": "time.day", 
+            "settings": {
+                "foreground": "#228888", 
+                "background": "#333344",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "tag", 
+            "name": "Tag", 
+            "settings": {
+                "foreground": "#000000", 
+                "fontStyle": "bold", 
+                "background": "#ddaa22"
+            }
+        }, 
+        {
+            "scope": "tag.brackets", 
+            "name": "tag.brackets", 
+            "settings": {
+                "foreground": "#ddffff", 
+                "fontStyle": "normal", 
+                "background": "#223030"
+            }
+        }, 
+        {
+            "scope": "prio.high", 
+            "name": "prio.high", 
+            "settings": {
+                "fontStyle": "bold", 
+                "foreground": "#66ff66"
+            }
+        },
+        {
+            "scope": "prio.med", 
+            "name": "prio.med", 
+            "settings": {
+                "background": "#ddaa44", 
+                "foreground": "#000000",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "prio.low", 
+            "name": "prio.low", 
+            "settings": {
+                "foreground": "#999999",
+                "fontStyle": "bold"
+            }
+        }, 
+        {
+            "scope": "comment", 
+            "name": "Comment", 
+            "settings": {
+                "foreground": "#75715E"
+            }
+        }, 
+        {
+            "scope": "string", 
+            "name": "String", 
+            "settings": {
+                "foreground": "#dddd44", 
+                "fontStyle2": "bold", 
+                "background2": "#222244"
+            }
+        }, 
+        {
+            "scope": "constant.numeric", 
+            "name": "Number", 
+            "settings": {
+                "foreground": "#ffff88", 
+                "fontStyle2": "bold", 
+                "background2": "#222244"
+            }
+        }, 
+        {
+            "scope": "constant.language", 
+            "name": "Built-in constant", 
+            "settings": {
+                "foreground": "#AE81FF"
+            }
+        }, 
+        {
+            "scope": "constant.character, constant.other", 
+            "name": "User-defined constant", 
+            "settings": {
+                "foreground": "#AE81FF"
+            }
+        }, 
+        {
+            "scope": "variable", 
+            "name": "Variable", 
+            "settings": {
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "keyword", 
+            "name": "Keyword", 
+            "settings": {
+                "foreground": "#66ccFf"
+            }
+        }, 
+        {
+            "scope": "storage", 
+            "name": "Storage", 
+            "settings": {
+                "foreground": "#66ccFf", 
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "storage.type", 
+            "name": "Storage type", 
+            "settings": {
+                "foreground": "#66D9EF", 
+                "fontStyle": "italic"
+            }
+        }, 
+        {
+            "scope": "entity.name.class", 
+            "name": "Class name", 
+            "settings": {
+                "foreground": "#A6E22E", 
+                "fontStyle": "underline"
+            }
+        }, 
+        {
+            "scope": "entity.name.function", 
+            "name": "Function name", 
+            "settings": {
+                "foreground": "#A6E22E", 
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "variable.parameter", 
+            "name": "Function argument", 
+            "settings": {
+                "foreground": "#FD971F", 
+                "fontStyle": "italic"
+            }
+        }, 
+        {
+            "scope": "entity.name.tag", 
+            "name": "Tag name", 
+            "settings": {
+                "foreground": "#66ccFf", 
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "entity.other.attribute-name", 
+            "name": "Tag attribute", 
+            "settings": {
+                "foreground": "#A6E22E", 
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "support.function", 
+            "name": "Library function", 
+            "settings": {
+                "foreground": "#66D9EF", 
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "support.constant", 
+            "name": "Library constant", 
+            "settings": {
+                "foreground": "#66D9EF", 
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "support.type, support.class", 
+            "name": "Library class/type", 
+            "settings": {
+                "foreground": "#66D9EF", 
+                "fontStyle": "italic"
+            }
+        }, 
+        {
+            "scope": "support.other.variable", 
+            "name": "Library variable", 
+            "settings": {
+                "fontStyle": ""
+            }
+        }, 
+        {
+            "scope": "invalid", 
+            "name": "Invalid", 
+            "settings": {
+                "foreground": "#F8F8F0", 
+                "fontStyle": "", 
+                "background": "#66ccFf"
+            }
+        }, 
+        {
+            "scope": "invalid.deprecated", 
+            "name": "Invalid deprecated", 
+            "settings": {
+                "foreground": "#F8F8F0", 
+                "background": "#AE81FF"
+            }
+        }, 
+        {
+            "scope": "meta.structure.dictionary.json string.quoted.double.json", 
+            "name": "JSON String", 
+            "settings": {
+                "foreground": "#CFCFC2"
+            }
+        }, 
+        {
+            "scope": "meta.diff, meta.diff.header", 
+            "name": "diff.header", 
+            "settings": {
+                "foreground": "#75715E"
+            }
+        }, 
+        {
+            "scope": "markup.deleted", 
+            "name": "diff.deleted", 
+            "settings": {
+                "foreground": "#66ccFf"
+            }
+        }, 
+        {
+            "scope": "markup.inserted", 
+            "name": "diff.inserted", 
+            "settings": {
+                "foreground": "#A6E22E"
+            }
+        }, 
+        {
+            "scope": "markup.changed", 
+            "name": "diff.changed", 
+            "settings": {
+                "foreground": "#E6DB74"
+            }
+        }
+    ]
+}</xmp>
+
+<h3>cde.py</h3>
+<xmp>
+import sublime, sublime_plugin, datetime, re, sys, traceback
+
+done_string = 'DONE:'
+linkedString = 'LINKED:'
+s_colon_thresh = 0
+tidyIndentRep = "     "
+tidyIndentEnd = " -> "
+
+class GotoDoneCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		print("goto done")
+		pos_orig = self.view.sel()[0]
+		scope = dest_find_or_create(self, edit, False)
+		# v = self.view
+		# v.sel().clear()
+		# v.sel().add(scope)
+		# return
+		pos = scope.b - 1
+		sel = self.view.sel()
+		sel.clear()
+		if pos == pos_orig.a:
+			pos = 0;
+		sel.add(sublime.Region(pos, pos))
+		self.view.show_at_center(pos)
+
+class GotoNextHeadingCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		pos = 0
+		sel = self.view.sel()
+		target = None
+
+		for s in sel:
+			#link_formats = (("->\[(.+)\]", "(?<!->)\[", "\]"), ("(?<!->)\[(.+)\]", "->\[", "\]"))
+			link_formats = (("\[(.+)\]", "[", "]"),)
+			for link_format in link_formats:
+				line = self.view.lines(s)[0]
+				start = self.view.find("[^\s]", line.begin())
+				line_text = self.view.substr(line)
+				#print "searching for " + link_format[0] + " in " + line_text
+				# print "link format" + link_format[0]
+				m = re.search(link_format[0], line_text)
+				if not m:
+					print("no match")
+					continue
+				link = m.group(1)
+				print("link = " + link)
+				target = link_format[1] + link + link_format[2]
+				break
+			pos = s.begin()
+			break
+
+		if target:
+			pos = self.view.text_point(self.view.rowcol(pos)[0] + 1, 0)
+			print("target is: " + target)
+			found = self.view.find(target, pos + 1, sublime.LITERAL | sublime.IGNORECASE)
+			if not found:
+				found = self.view.find(target, 0, sublime.LITERAL | sublime.IGNORECASE)
+			if not found:
+				return
+			pos = found.begin()
+			sel.clear()
+			sel.add(found)
+			self.view.show_at_center(pos)
+			self.view.window().run_command("slurp_find_string")
+			return
+
+		# print "main"
+		for i in range(2):
+			found1 = self.view.find("^.+_\s*$", pos+1)
+			found2 = self.view.find("^#", pos+1)
+			found3 = self.view.find("^[A-Za-z]{3} \d{2} [A-Za-z]{3} \d{4}", pos+1)
+			found = None
+			if found1:
+				print("found1")
+				found = found1
+			if found2:
+				print("found2")
+				found = min(found, found2) if found else found2
+			if found3:
+				print("found3")
+				found = min(found, found3) if found else found3
+			if found == None:
+				pos = -1
+				continue
+			# found = min(found, )
+			# print found
+			pos = found.begin()
+			sel.clear()
+			sel.add(sublime.Region(pos, pos))
+			self.view.show_at_center(pos)
+			break
+
+class InsertDateCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		date = datetime.date.today().strftime('%Y%b%d').lower()
+		for region in reversed(self.view.sel()):
+			self.view.replace(edit, region, "")
+			self.view.insert(edit, region.begin(), date)
+
+class InsertTimeCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		mydate = datetime.datetime.today().strftime('%H:%M').lower()
+		for region in reversed(self.view.sel()):
+			self.view.replace(edit, region, "")
+			self.view.insert(edit, region.begin(), mydate)
+
+class InsertDateRetCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		date = datetime.date.today().strftime('%a %d %b %Y\n\n')
+		for region in reversed(self.view.sel()):
+			self.view.replace(edit, region, "")
+			self.view.insert(edit, region.begin(), date)
+		self.view.run_command("move", {"by": "lines", "forward": False})
+		#self.view.run_command("move", {"by": "lines", "forward": False})
+
+class InsertDayCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		days = ["#mon", "#tue", "#wed", "#thu", "#fri", "#sat", "#sun"]
+		for region in reversed(self.view.sel()):
+			testRegion = sublime.Region(region.begin() - 4, region.begin())
+			test = self.view.substr(testRegion).lower()
+			if test in days:
+				next_day = days[(days.index(test) + 1) % len(days)]
+				self.view.replace(edit, testRegion, next_day)
+			else:
+				date = datetime.date.today().strftime('#%a').lower()
+				self.view.replace(edit, region, "")
+				self.view.insert(edit, region.begin(), date)
+
+def undecorate(str):
+	# str = str[0:4].replace("-> [", "") + str[4:]
+	return str.lstrip("[+*-%@= ").rstrip(":] ")
+
+def uncolon(str):
+	# str = str[0:4].replace("-> [", "") + str[4:]
+	return str.rstrip(": ")
+
+# return region of dest section body
+def dest_find_or_create(self, edit, source_for_link):
+	v = self.view
+	sel = v.sel()	
+	if source_for_link:
+		found = v.find(linkedString, 0, sublime.LITERAL)
+		if not found:
+			return sublime.Region(0, 0) # couldn't find linked section; todo create it
+		(row, col) = v.rowcol(found.b)
+		pos = v.text_point(row+1, 0)
+		linked_area = sublime.Region(pos, v.size())
+		assert(len(source_for_link.kids) > 0)
+		link_sought = "[" + source_for_link.kids[0].line + "]" 
+		# print "seeking " + link_sought
+		found = v.find(link_sought, pos, sublime.LITERAL)
+		if not found: # couldn't find existing link
+			pos = v.size()
+			v.insert(edit, pos, link_sought + "\n");
+			return sublime.Region(pos, v.size()) 
+		else: # found link
+			return get_extended_to_hier(v, sublime.Region(found.a, found.b), True)
+			# return sublime.Region(found.a, found.b)
+
+	else:
+		date = datetime.date.today().strftime('%a %d %b %Y')
+		dateToFind = done_string + '\n\n' + date
+		found = v.find(dateToFind, 0, sublime.LITERAL)
+		print("found = ", found)
+		if not found:
+			print("no today") #cdje
+			found = v.find(done_string, 0, sublime.LITERAL)
+			if not found:
+				# print "no done"
+				return sublime.Region(0, 0) 
+			else:
+				# print "found done section, creating date"
+				(row, col) = v.rowcol(found.begin())
+				# print row + 2
+				pos = v.text_point(row+2, 0)
+				v.insert(edit, pos, date + "\n\n")
+				# sel.clear()
+				# sel.add(sublime.Region(pos, pos))
+				row += 3
+				pos = v.text_point(row, 0)
+				return sublime.Region(pos, pos+1)
+		else:
+			print("found today's date", dateToFind) #cdje
+			(row1, col1) = v.rowcol(found.begin())
+			pos = v.text_point(row1+3, 0)
+			scope_start = v.text_point(row1+3, 0)
+			found2 = v.find("^[A-Za-z]{3} \d{2} [A-Za-z]{3} \d{4}", pos)
+			# if (v.line(found2
+			(row2, col2) = v.rowcol(found2.a)
+			scope_end = found2.a
+			for row in reversed(range(row1, row2)):
+				line = v.substr(v.line(v.text_point(row, 0)))
+				if line[0:2] == "--":
+					ind = count_indent_tabs(line)
+					while row < row2 - 1:
+						row = row + 1
+						line = v.substr(v.line(v.text_point(row, 0)))
+						print(line, count_indent_tabs(line))
+						ind2 = count_indent_tabs(line)
+						if (ind2 <= ind):
+							break
+					scope_start = v.text_point(row, 0)
+					break
+			scope = sublime.Region(scope_start, scope_end)
+			return scope
+
+class Node:
+	def __init__(self, line = "<ROOT>", virtual = 0):
+		self.kids = []
+		self.line = line
+		self.virtual = virtual
+
+	def __repr__(self, indent = 0):
+		s = "    " * indent
+		s += "{"*self.virtual + "'" + self.line + "'" + "}"*self.virtual + "\n"
+		s += "".join(kid.__repr__(indent + 1) for kid in self.kids)
+		return s
+
+	@staticmethod
+	def test():
+		root = Node("root")
+		root.kids.append(Node("child1"))
+		root.kids[-1].kids.append(Node("grandchildof1"))
+		root.kids.append(Node("child2"))
+		root.kids[-1].kids.append(Node("grandchildof2"))
+		root.kids.append(Node("child3"))
+		print(root)
+
+	def bstrip(self):
+		if len(self.kids) == 0: return
+		if self.kids[-1].line == "" and len(self.kids[-1].kids) == 0:
+			del self.kids[-1]
+		else:
+			self.kids[-1].bstrip()
+
+	def split_colons(self):
+		# pos = self.line.find(': ')
+		while (1):
+			m = re.match("(.*) : +(.+)", self.line)
+			if m: # and m.start(2) < s_colon_thresh:
+				# print m.start(2)
+				# print m.group(1)
+				# print m.group(2)
+				# print "---"
+				self.line = m.group(1)
+				kid = Node(m.group(2))
+				kid.kids = self.kids
+				self.kids = [kid]
+			else:
+				break
+		for kid in self.kids:
+			kid.split_colons()
+
+	def join_colons(self, level):
+		for kid in self.kids:
+			kid.join_colons(level + 1)
+		if level >= 0 and len(self.line) < s_colon_thresh and len(self.kids) == 1:
+			kid = self.kids[0]
+			self.line = uncolon(self.line) + " : " + kid.line
+			# print self.line
+			self.kids = kid.kids
+			del kid
+
+	# eat everything > my level using peeking
+	def parse(self, level, lines, inline = 0, tabs_virtual = 0):
+		while 1:
+			if len(lines) == 0: return
+			
+			line = lines[0] # peek
+			tabs = count_indent_tabs(line)
+			if tabs < 0:
+				lines.pop(0) # ignore blank lines
+				continue
+			# print "lev {0}: parsing {1}-tabbed: '{2}'".format(level, tabs, line if line else "<null line>")
+			# if 0 <= tabs <= level or (tabs < 0 and len(self.kids) == 0):   breaks if first child blank
+			if tabs + tabs_virtual <= level:
+				# print "reject"
+				return # not a child of us, return to let parent process it
+
+			lines.pop(0) # we agree to process as a child
+			line2 = line[tabs:]
+			kid = Node(line2)
+
+			# make kid have a kid of its own if it contains a colon then more text
+			kid_c = kid
+			tabs_virtual_child = tabs_virtual
+			while inline:
+				pos = kid_c.line.find(' : ')
+				line_kid = kid_c.line[pos+3:].lstrip() if pos >= 0 else ""
+				if line_kid == "": break
+				# todo trim spaces from kidkid
+				# tabs_virtual_child += 1
+				kidkid = Node(line_kid)
+				kid_c.line = kid_c.line[:pos]
+				kid_c.kids.append(kidkid)
+				kid_c = kidkid
+
+			self.kids.append(kid)
+			self.kids[-1].parse(tabs, lines, inline, tabs_virtual_child)
+
+#test01: inline
+#test02
+		#test1
+			#test2
+	#test2: test21
+		#test3
+
+	def get_text(self, level, inline = 0, skip = True, tidy = False):
+		s = ""
+		kid_lines = "".join(kid.get_text(level + 1, inline, skip = False, tidy = tidy) for kid in self.kids)
+		# print "count = {0}, self level = {1}, inline = {2}".format(kid_lines.count('\n'), level, inline)
+		# print "kid_lines = " + kid_lines
+		if tidy:
+			def tab(n):	return (tidyIndentRep*(n-1) + tidyIndentEnd) if n > 0 else ""
+		else:
+			def tab(n):	return "\t"*n
+		sl = self.line
+		if tidy:
+			if sl[-5:-3].isdigit() and sl[-3] == ":" and sl[-2:].isdigit():
+				sl = sl[:-5]
+		if inline and not skip and len(sl) < s_colon_thresh and kid_lines.count('\n') == 1:
+			s += tab(level) + undecorate(sl) + ": " + kid_lines.lstrip()
+		else:
+			if not skip:
+				s += tab(level) + sl + "\n"
+			s += kid_lines
+		# print "s = " + s
+		return s
+
+	def append_real(self, date):
+		if not self.virtual:
+			self.line = self.line.rstrip() + " " + date
+			return
+		for kid in self.kids:
+			kid.append_real(date)
+
+	def merge(self, other, date = None):
+		# print "merging {0} into {1}".format(other, self)
+		kid_lines = [undecorate(kid.line) for kid in self.kids]
+		for incoming in other.kids:
+			other_line2 = undecorate(incoming.line)
+			if other_line2 in kid_lines:
+				i = len(kid_lines) - 1 - kid_lines[::-1].index(other_line2)
+				# print "merging kids[{0}]".format(i)
+				taker = self.kids[i]
+				#if not incoming.virtual:
+					# print "DONE appended to {0}".format(taker)
+					#taker.line += " DONE " + date
+				taker.merge(incoming, date)
+			else:
+				# print "appending {0} to kids of {1}".format(incoming, self)
+				if date:
+					incoming.append_real(date)
+				self.kids.append(incoming)
+
+	def coalesce(self):
+		k = 0
+		while k < len(self.kids) - 1:
+			# print "testing {0} against {1}".format(self.kids[k].line, self.kids[k+1].line)
+			if self.kids[k].line == self.kids[k+1].line:
+				# print("merging {0}".format(self.kids[k].line))
+				self.kids[k].merge(self.kids[k+1])
+				del self.kids[k+1]
+			else:
+				k += 1
+
+	# returns the row above
+	def add_ancestors(self, level, pos, v, level_target, nowrite = False):
+		if len(self.kids) == 0: return
+		row, col = v.rowcol(pos)
+		col = 0 # so that text_point always works
+		row -= 1
+		# print level_target 
+		# print row+1, level
+		while level > level_target and row >= 0:
+			line = v.line(v.text_point(row, col))
+			line_text = v.substr(line)
+			tabs = count_indent_tabs(line_text)
+			# print row+1, level, tabs, line_text
+			if tabs < level and tabs >= 0:
+				level = tabs
+				if not nowrite:
+					line2 = line_text[tabs:]
+					kid = Node(line2, 1)
+					kid.kids = self.kids
+					self.kids = [kid]
+			row -= 1
+		return row
+
+	# replace kid0 with "kid0: kid" for each kid of kid0
+	def distribute_kid0(self):
+		kid0 = self.kids[0]
+		# del kids[0]
+		for kid in kid0.kids:
+			kid.line = undecorate(kid0.line) + " : " + kid.line
+		del self.kids[0]
+		self.kids[0:0] = kid0.kids
+		# print kid0
+
+
+def prependLinesWith(self, edit, prefix, newline=False):
+	v = self.view
+	sel_orig = [r for r in v.sel()]
+	o = 0;
+	lines = []
+	sat = True
+	for region in sel_orig:
+		for line in v.lines(region):
+			lines.append(line)
+			# print line
+			start = v.find("[^\s]", line.begin())
+			if not (start.begin() < line.end() and v.substr(sublime.Region(start.begin(), start.begin() + len(prefix))) == prefix):
+				sat = False
+	for line in lines:
+		pos = line.begin() + o
+		start = v.find("[^\s]", pos)
+		print(start)
+		if start.begin() >= line.end():
+			start = sublime.Region(line.end(), line.end())
+		# print "start.begin() ", start.begin()
+		# print "line.begin() ", line.begin()
+		# print "line.end() ", line.end()
+		# print "o", o
+		if True: # start.begin() < line.end() + o:
+			print("here")
+			if sat:
+				v.erase(edit, sublime.Region(start.begin(), start.begin()+len(prefix)))
+				o -= len(prefix)
+			else:
+				print(start.begin() < line.end() + o, v.substr(sublime.Region(start.begin(), start.begin() + len(prefix))) == prefix)
+				if not (start.begin() < line.end() + o and v.substr(sublime.Region(start.begin(), start.begin() + len(prefix))) == prefix):
+					v.insert(edit, start.begin(), prefix)
+					o += len(prefix)
+	if newline and len(sel_orig) == 1 and sel_orig[0].begin() == sel_orig[0].end():
+		v.run_command("move", {"by": "lines", "forward": True})
+
+class prepend_lines_with(sublime_plugin.TextCommand):
+	def run(self, edit, x = ""):
+		prependLinesWith(self, edit, x)
+
+class swap_anchor(sublime_plugin.TextCommand):
+	def run(self, edit):
+		v = self.view
+		sel = v.sel()
+		sel2 = [r for r in sel]
+		sel.clear()
+		for s in sel2:
+			# print s.a, s.b
+			sel.add(sublime.Region(s.b, s.a))
+		# for s in self.view.sel():
+			# print s.a, s.b
+
+class encompass_curly(sublime_plugin.TextCommand):
+	def run(self, edit):
+
+		v = self.view
+		sel_orig = [r for r in v.sel()]
+		for region in reversed(sel_orig):
+
+			lines = v.lines(region)
+
+			# measure indentation
+			tabs = (count_indent_tabs(v.substr(line)) for line in lines)
+			indent = min(tab for tab in tabs if tab >= 0) - 1
+
+			# encompass line start, end and newlines
+			block = sublime.Region(lines[0].begin(), lines[-1].end())
+
+			v.insert(edit, block.end(), "\n" + "\t"*indent + "}")
+			v.insert(edit, block.begin(), "\t"*indent + "{\n")
+
+class copy_unindented(sublime_plugin.TextCommand):
+	def run(self, edit):
+		v = self.view
+		lines_text = []
+		indent = 999
+		for region in v.sel():
+			for line in v.lines(region):
+				line_text = v.substr(line)
+				indent = min(indent, count_indent_tabs(line_text))
+				lines_text.append(line_text)
+		# print lines_text
+		# print indent
+		lines_text = [l[indent:] for l in lines_text]
+		sublime.set_clipboard('\n'.join(lines_text))
+		# print lines_text
+		return
+
+class extendSelUpToFirstLevel(sublime_plugin.TextCommand):
+	def run(self, edit):
+
+		def extend_up(row):
+			v = self.view
+			level = -1
+			while level < 0 and row >= 0:
+				pos = v.text_point(row, 0)
+				level = count_indent_tabs(v.substr(v.line(pos)))
+				row -= 1
+				# print level, row
+			while row >= 0:
+				pos = v.text_point(row, 0)
+				level_test = count_indent_tabs(v.substr(v.line(pos)))
+				if level_test < level:
+					break
+				row -= 1
+			row += 1
+			return row
+			
+		v = self.view
+		sel_orig = [r for r in v.sel()]
+		v.sel().clear()
+		for region in sel_orig:
+			row, col = v.rowcol(region.a)
+			row2, col2 = v.rowcol(region.b)
+			print(row+1, row2+1)
+			row_new = extend_up(row)
+			if row_new == row:
+				row_new = extend_up(row-1)
+			pos = v.text_point(row_new, 0)
+			region_new = sublime.Region(pos, max(region.a, region.b))
+			v.sel().add(region_new)
+
+def addToNum(self, edit, d):
+	sel_orig = [r for r in self.view.sel()]
+	o = 0;
+	lines = []
+	for region in sel_orig:
+		for line in self.view.lines(region):
+			lines.append(line)
+	for line in lines:
+		pos = line.begin() + o
+		num = self.view.find("(-?\d+)", pos)
+		prev = self.view.substr(num)
+		next = str(int(prev) + d)
+		# print next, len(str(next))
+		self.view.replace(edit, num, next)
+
+class CdeIncrementCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		addToNum(self, edit, 1)
+
+class CdeDecrementCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		addToNum(self, edit, -1)
+
+def get_extended_to_hier(v, region, extend):
+	# if not extend and region.a != region.b:
+	# 	# don't change
+	# 	return region
+
+	# empty region: select hierarchy
+
+	(row0, col0) = v.rowcol(region.a)
+	(row, col) = v.rowcol(region.b)
+
+	# causes repeated extending to fail (shift+ctrl+down)
+	if not extend and row > row0 and col == 0:
+	 	(row, col) = v.rowcol(region.b-1)
+
+	(row_last, col_last) = v.rowcol(v.size())
+	#sel.add(sublime.Region(region.a, region.b+2))
+	line_reg = v.line(v.text_point(row, col))
+	tabs0 = count_indent_tabs(v.substr(line_reg))
+	if tabs0 == -1:
+		if extend:
+			row += 1
+			line_reg = v.line(v.text_point(row, col))
+			tabs0 = count_indent_tabs(v.substr(line_reg))
+		else:
+			# blank line
+			# print "adding {0}".format(v.substr(region))
+			return region
+
+	row1 = row+1
+	# print "tabs {0}".format(tabs0)
+	# import pprint
+	# pprint.pprint(locals())
+	# print "row_last = {0}"
+	# import sys
+	# print sys.version_info
+	blanks = 0
+	while True:
+		row += 1
+		if (row > row_last):
+			break
+		line_reg = v.line(v.text_point(row, 0))
+		tabs = count_indent_tabs(v.substr(line_reg))
+		# print "examining line (t={0}): ".format(tabs) + v.substr(line_reg) 
+		if tabs < 0 or tabs > tabs0:
+			blanks = blanks + 1 if tabs < 0 else 0
+			# print "row1 -> ", row+1
+			row1 = row+1
+		else:
+			break
+	
+	# print "blanks ", blanks
+	row1 -= blanks
+	# print "setting row range to be {0} -> {1}".format(row0+1, row1+1)
+	return sublime.Region(v.text_point(row0, 0), v.text_point(row1, 0))
+
+def sel_hier(self, edit, extend = True):
+	# print "-----"
+	v = self.view
+	sel_orig = [r for r in v.sel()]
+	sel = v.sel()
+	sel.clear()
+
+	for region in sel_orig:
+		region = sublime.Region(*sorted([region.a, region.b]))
+		sel.add(get_extended_to_hier(v, region, extend))
+
+class SelectHierarchyCommand(sublime_plugin.TextCommand):
+	def run(self, edit):
+		sel_hier(self, edit, True)
+
+def count_indent_tabs(line_text):
+	# print "counting indent tabs for: " + line_text
+	m = re.search("[^\t]", line_text)
+	tabs = 0
+	if m:
+		# print "line {0}: -----> {1}".format(line_text, m.start())
+		return m.start()
+	else:
+		# print "returning -1"
+		return -1
+
+# above:
+#  -1: to last sibling of ancestor
+#  0: to DONE section
+#  1 = to above immediate ancestor, broken out with duplicated heading
+#  2 = to above furthest ancestor (top level) , broken out with duplicated heading
+#  3 = to above furthest ancestor (top level) , broken out with duplicated heading, using colon
+def move_region(self, edit, region, clear_only, link, copy_only, above, date):
+
+# build source tree
+	# Node.test()
+	v = self.view
+	source_tree = Node("source")
+	source_lines = v.lines(region)
+	source_block = [v.substr(line) for line in source_lines]
+	source_tree.parse(-1, source_block)
+	# print source_tree
+	# return
+	tabs = count_indent_tabs(v.substr(source_lines[0]))
+	level_target = max(tabs-1, 0) if above >= 2 or above == -1 else 0
+	dest_row = source_tree.add_ancestors(tabs, region.a, v, level_target, above == -1) + 1
+	#print dest_row
+	source_tree.line = "source+an" # only for the human readable repr
+	#print source_tree
+	#return
+
+# copy
+	if copy_only:
+		sublime.set_clipboard(source_tree.get_text(-1, 1, tidy = True))
+		return
+
+# clear source lines
+	# print "clearing"
+	if above != -1: # otherwise clear after
+		for line in reversed(source_lines):
+			v.erase(edit, v.full_line(line))
+	if clear_only:
+		return
+
+# find or create dest area
+	if above:
+		# we're moving the block above current parent or furthest ancestor
+		# or moving it to bottom of current parent in case where above = -1
+		# print "dest_row", dest_row
+
+		# if moving an unindented block above, interpret this as wanting to move it to the top of the file
+		if tabs == 0:
+			dest_row = 0
+		dest_pos = v.text_point(dest_row, 0)
+		dest_region = sublime.Region(dest_pos, dest_pos)
+		indent = -1
+
+		if above == -1:
+			if tabs == 0: # top level block already, dest_row/region won't be meaningful, move to underneath the next heading
+				ancestor_region = get_extended_to_hier(v, region, False)
+				ancestor_region = get_extended_to_hier(v, sublime.Region(ancestor_region.b, ancestor_region.b), True) # true skips blank lines
+			else:
+				ancestor_region = get_extended_to_hier(v, dest_region, False)
+
+			#v.sel().clear()
+			#v.sel().add(ancestor_region)
+			#return
+
+			dest_region = sublime.Region(ancestor_region.b, ancestor_region.b)
+			indent = max(tabs - 1, -1)
+
+		if above >= 2:
+			indent = max(tabs - 2, -1)
+		if above == 3:
+			source_tree.distribute_kid0()
+			# print source_tree
+			indent = max(tabs - 2, -1)
+		#print "tabs", tabs, "indent", indent
+		# print source_tree
+		txt = source_tree.get_text(indent, False)
+		v.insert(edit, dest_region.a, txt)
+		v.sel().clear()
+		v.sel().add(sublime.Region(dest_region.a, dest_region.a + len(txt)))
+		v.show_at_center(dest_region.a)
+		if above == -1:
+			for line in reversed(source_lines):
+				v.erase(edit, v.full_line(line))
+		return
+	else:
+		dest_region = dest_find_or_create(self, edit, source_tree if link else None)
+	# v.sel().clear()
+	# v.sel().add(dest_region)
+	# self.view.show_at_center(dest_region.a)
+	# return
+
+# build dest tree
+	dest_tree = Node("dest")
+	dest_lines = v.lines(dest_region)
+	dest_block = [v.substr(line) for line in dest_lines]
+	dest_tree.parse(-1, dest_block)
+	dest_tree.bstrip()
+	# print dest_tree
+
+# split colons
+	source_tree.split_colons()
+	dest_tree.split_colons()
+	# print source_tree
+	# print dest_tree
+	# return
+
+# clear dest lines
+	for line in reversed(dest_lines):
+		v.erase(edit, v.full_line(line))
+
+#todo date
+	if date is None:
+		date = datetime.datetime.today().strftime('%H:%M').lower()
+	# print date
+
+# merge source into dest tree
+	dest_tree.merge(source_tree, date)
+	dest_tree.line = "merged"
+	# print dest_tree
+	dest_tree.coalesce()
+	dest_tree.line = "coalesced"
+	# print dest_tree
+	dest_tree.join_colons(-1)
+	dest_tree.line = "joined"
+	# print dest_tree
+	# return
+
+# output tree to dest
+	# print "----->"
+	# txt = dest_tree.get_text(-1, not link)
+	txt = dest_tree.get_text(-1, False)
+	txt += "\n"
+	v.insert(edit, dest_region.a, txt)
+
+def move_lines(self, edit, clear_only=False, link=False, copy_only = False, above = 0, date = None):
+	
+	def lines_in_sel(): return sum([len(self.view.lines(r)) for r in self.view.sel()])
+
+	v = self.view
+	lines_pre = lines_in_sel()
+	#if not clear_only:
+	sel_hier(self, edit, False)
+	lines_post = lines_in_sel()
+	# print v.sel()
+
+	if (lines_post >= lines_pre + 1 and not copy_only):
+		return # to let use see selection change
+
+	sel_orig = [r for r in v.sel()]
+	for region in reversed(sel_orig):
+		try:
+			if region.a > region.b:
+				region = sublime.Region(region.b, region.a)
+			move_region(self, edit, region, clear_only, link, copy_only, above, date)
+		except:
+			e = sys.exc_info()[0]
+			v.insert(edit, region.a, "\n% ERROR from cde.py\n% " + str(e) + "\n")
+			traceback.print_exc()
+			pass
+
+class MoveLinesCommand(sublime_plugin.TextCommand):
+	def run(self, edit, clear_only=False, link=False, copy_only = False, above = 0, date = None):
+
+		move_lines(self, edit, clear_only, link, copy_only, above, date)
+</xmp>
+
+<h3>cde.sublime-settings</h3>
+<xmp>
+{
+  "draw_indent_guides": true,
+  "line_numbers": true,
+  "gutter": true,
+  "margin": 20,
+  "fold_buttons": true,
+  "extensions":
+	[
+		"txt"
+	]
+}
+</xmp>
+
+<h3>cde.tmLanguage</h3>
+<xmp>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>cde</string>
+	</array>
+	<key>name</key>
+	<string>cde notes</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>(-&gt; ?)?\[[^\[]+]</string>
+			<key>name</key>
+			<string>tag.brackets</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(--|==|↑|↓)+.*</string>
+			<key>name</key>
+			<string>heading.separator</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=[\s]|^)#("[^"]+"|[\w]+)</string>
+			<key>name</key>
+			<string>tag</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>([^\w]|^)# .*$</string>
+			<key>match</key>
+			<string>(?&lt;=[\s]|^)##([^:\n]*|.*$)</string>
+			<key>name</key>
+			<string>tag.line</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>"[^"]+"</string>
+			<key>name</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>future</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(&gt;)</string>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>current</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(=)</string>
+			<key>match2</key>
+			<string>((: )|(^\s*))(=.*)</string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>prio.low</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))([~\!/&lt;].*)</string>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>done</string>
+				</dict>
+			</dict>
+			<key>match2</key>
+			<string>((: )|(^\s*))()</string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=[\s]|^)\$("[^"]+"|[\w]+)</string>
+			<key>name</key>
+			<string>future.assign</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>PRGO-[\d]*</string>
+			<key>name</key>
+			<string>date.ongo</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>hide.future.assign</string>
+				</dict>
+			</dict>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>match3</key>
+			<string>((: )|(^\s*))(\$)</string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>prio.high.star</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(\*.*)</string>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bTELL\b</string>
+			<key>name</key>
+			<string>tell</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>future.tell</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(@)</string>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bHI\b</string>
+			<key>name</key>
+			<string>prio.high.word</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bONGO\b</string>
+			<key>name</key>
+			<string>date.ongo</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>good</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(\+.*)</string>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>future.ask</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(\?.*)</string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>bad</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(\?|%.*)</string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bLO\b</string>
+			<key>name</key>
+			<string>prio.low.word</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>prio.low.sym</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(\?)</string>
+			<key>match2</key>
+			<string>((: )|(^\s*))(\?|-)</string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bNOTE\b</string>
+			<key>match2</key>
+			<string>(?!^|: )\s*\|[^#\[]*</string>
+			<key>match3</key>
+			<string>\s*\|[^#\[]*</string>
+			<key>match4</key>
+			<string>(?&lt;=[\s]|^)\|[^#\[]*</string>
+			<key>name</key>
+			<string>note</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bNOT\b</string>
+			<key>name</key>
+			<string>not</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(BAD|BUG|bug|Bug)\b</string>
+			<key>name</key>
+			<string>bad</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b[Ff][Ii][Xx](ed|ED)?\b</string>
+			<key>name</key>
+			<string>fix</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bGOOD\b</string>
+			<key>name</key>
+			<string>good</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bDONE\b</string>
+			<key>name</key>
+			<string>done.big</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\bWAIT\b</string>
+			<key>match2</key>
+			<string>((?&lt;=(: ))|^\s*)WAIT </string>
+			<key>name</key>
+			<string>wait</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(YEST|PAST)\b</string>
+			<key>name</key>
+			<string>date.daily</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(DUE)\b</string>
+			<key>name</key>
+			<string>date.due</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>priv</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>((: )|(^\s*))(£) </string>
+			<key>match2</key>
+			<string>(^\s*)(\+) </string>
+			<key>name</key>
+			<string>dummy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=[\s]|^)PRI ([^:\n]*|.*$)</string>
+			<key>name</key>
+			<string>priv</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>date.daily</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^([A-Za-z]{3} [0-3][0-9] [A-Za-z]{3} 20[0-1][0-9]).*\n</string>
+			<key>name</key>
+			<string>date.line</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[A-Za-z]{3} [0-3][0-9] [A-Za-z]{3} 20[0-1][0-9]</string>
+			<key>name</key>
+			<string>date.cde</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\d{4}-\d{1,2}-\d{1,2}([- ][a-zA-Z]{3}\b)?</string>
+			<key>name</key>
+			<string>date.iso</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\d+\.?\d* day</string>
+			<key>name</key>
+			<string>time.day</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>20[0-1][0-9][a-zA-Z]{3}\d{2}</string>
+			<key>name</key>
+			<string>date.compact</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\d{2}:\d{2}</string>
+			<key>name</key>
+			<string>time</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![a-zA-Z])[-+]?[0-9]*\.?[0-9]+(?![a-zA-Z])</string>
+			<key>name</key>
+			<string>constant.numeric</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&amp;=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&amp;=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&amp;;%@.\w_]*)#?(?:[\w]*))?)/</string>
+			<key>match</key>
+			<string>((?:https?|ftp|file)://\S+)</string>
+			<key>name</key>
+			<string>url</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.cde</string>
+	<key>uuid</key>
+	<string>7b11100b-7189-4693-a1f6-f088d54f145d</string>
+</dict>
+</plist>
+</xmp>
+
+<h3>cde.tmTheme</h3>
+<xmp>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colorSpaceName</key>
+	<string>sRGB</string>
+	<key>name</key>
+	<string>cde</string>
+	<key>semanticClass</key>
+	<string>theme.dark.cde</string>
+	<key>settings</key>
+	<array>
+		<dict>
+			<key>settings</key>
+			<dict>
+				<key>activeGuide</key>
+				<string>#ff00ff</string>
+				<key>background</key>
+				<string>#333333</string>
+				<key>bracketContentsForeground</key>
+				<string>#666666</string>
+				<key>bracketContentsOptions</key>
+				<string>underline</string>
+				<key>bracketsForeground</key>
+				<string>#00aaff</string>
+				<key>bracketsOptions</key>
+				<string>underline</string>
+				<key>caret</key>
+				<string>#ff0000</string>
+				<key>caret2</key>
+				<string>#ff00ff</string>
+				<key>findHighlight</key>
+				<string>#ff00ff</string>
+				<key>findHighlightForeground</key>
+				<string>#ffffff</string>
+				<key>foreground</key>
+				<string>#eeeeee</string>
+				<key>gutter</key>
+				<string>#222222</string>
+				<key>gutterForeground</key>
+				<string>#666666</string>
+				<key>inactiveSelection</key>
+				<string>#aaaa33</string>
+				<key>inactiveSelectionForeground</key>
+				<string>#000000</string>
+				<key>invisibles</key>
+				<string>#3B3A32</string>
+				<key>lineHighlight</key>
+				<string>#223344</string>
+				<key>selection</key>
+				<string>#550055</string>
+				<key>selectionBorder</key>
+				<string>#ff00ff</string>
+				<key>selectionForeground</key>
+				<string>#ffffff</string>
+				<key>tagsOptions</key>
+				<string>stippled_underline</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>priv</string>
+			<key>scope</key>
+			<string>priv</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#dd3300</string>
+				<key>foreground</key>
+				<string>#ffffff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>bad</string>
+			<key>scope</key>
+			<string>bad</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#cc3311</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>fix</string>
+			<key>scope</key>
+			<string>fix</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#003300</string>
+				<key>foreground</key>
+				<string>#33ee33</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>good</string>
+			<key>scope</key>
+			<string>good</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#77bb00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>wait</string>
+			<key>scope</key>
+			<string>wait</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#993322</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>FutureX</string>
+			<key>scope</key>
+			<string>futureX</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#88bbee</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Future</string>
+			<key>scope</key>
+			<string>future</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#aaccff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Current</string>
+			<key>scope</key>
+			<string>current</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#114422</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>note</string>
+			<key>scope</key>
+			<string>note</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#668866</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Done</string>
+			<key>scope</key>
+			<string>done</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#777755</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Done.big</string>
+			<key>scope</key>
+			<string>done.big</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#003300</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#33ee33</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>not</string>
+			<key>scope</key>
+			<string>not</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#333333</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#cc3311</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Heading</string>
+			<key>scope</key>
+			<string>heading</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#113333</string>
+				<key>fontStyle</key>
+				<string>normal</string>
+				<key>foreground</key>
+				<string>#99ffff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>url</string>
+			<key>scope</key>
+			<string>url</string>
+			<key>settings</key>
+			<dict>
+				<key>background2</key>
+				<string>#000066</string>
+				<key>fontStyle</key>
+				<string>underline</string>
+				<key>foreground</key>
+				<string>#4477dd</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Date</string>
+			<key>scope</key>
+			<string>date.line</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#333344</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#44ffff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Date</string>
+			<key>scope</key>
+			<string>date</string>
+			<key>settings</key>
+			<dict>
+				<key>background2</key>
+				<string>#333333</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#228888</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>date.daily</string>
+			<key>scope</key>
+			<string>date.daily</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#337777</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>date.ongo</string>
+			<key>scope</key>
+			<string>date.ongo</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#33aadd</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>date.due</string>
+			<key>scope</key>
+			<string>date.due</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#33ddff</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>time</string>
+			<key>scope</key>
+			<string>time</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#333344</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#228888</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>time.day</string>
+			<key>scope</key>
+			<string>time.day</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#333344</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#228888</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Tag</string>
+			<key>scope</key>
+			<string>tag</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#ddaa22</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>tag.brackets</string>
+			<key>scope</key>
+			<string>tag.brackets</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#223030</string>
+				<key>fontStyle</key>
+				<string>normal</string>
+				<key>foreground</key>
+				<string>#ddffff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>prio.high</string>
+			<key>scope</key>
+			<string>prio.high</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#66ff66</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>prio.med</string>
+			<key>scope</key>
+			<string>prio.med</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#ddaa44</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#000000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>prio.low</string>
+			<key>scope</key>
+			<string>prio.low</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#999999</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Comment</string>
+			<key>scope</key>
+			<string>comment</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#75715E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>String</string>
+			<key>scope</key>
+			<string>string</string>
+			<key>settings</key>
+			<dict>
+				<key>background2</key>
+				<string>#222244</string>
+				<key>fontStyle2</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#dddd44</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Number</string>
+			<key>scope</key>
+			<string>constant.numeric</string>
+			<key>settings</key>
+			<dict>
+				<key>background2</key>
+				<string>#222244</string>
+				<key>fontStyle2</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#ffff88</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Built-in constant</string>
+			<key>scope</key>
+			<string>constant.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#AE81FF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>User-defined constant</string>
+			<key>scope</key>
+			<string>constant.character, constant.other</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#AE81FF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Variable</string>
+			<key>scope</key>
+			<string>variable</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Keyword</string>
+			<key>scope</key>
+			<string>keyword</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#66ccFf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Storage</string>
+			<key>scope</key>
+			<string>storage</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#66ccFf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Storage type</string>
+			<key>scope</key>
+			<string>storage.type</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#66D9EF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Class name</string>
+			<key>scope</key>
+			<string>entity.name.class</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>underline</string>
+				<key>foreground</key>
+				<string>#A6E22E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function name</string>
+			<key>scope</key>
+			<string>entity.name.function</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#A6E22E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function argument</string>
+			<key>scope</key>
+			<string>variable.parameter</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#FD971F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Tag name</string>
+			<key>scope</key>
+			<string>entity.name.tag</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#66ccFf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Tag attribute</string>
+			<key>scope</key>
+			<string>entity.other.attribute-name</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#A6E22E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Library function</string>
+			<key>scope</key>
+			<string>support.function</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#66D9EF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Library constant</string>
+			<key>scope</key>
+			<string>support.constant</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#66D9EF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Library class/type</string>
+			<key>scope</key>
+			<string>support.type, support.class</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#66D9EF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Library variable</string>
+			<key>scope</key>
+			<string>support.other.variable</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Invalid</string>
+			<key>scope</key>
+			<string>invalid</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#66ccFf</string>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#F8F8F0</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Invalid deprecated</string>
+			<key>scope</key>
+			<string>invalid.deprecated</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#AE81FF</string>
+				<key>foreground</key>
+				<string>#F8F8F0</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>JSON String</string>
+			<key>scope</key>
+			<string>meta.structure.dictionary.json string.quoted.double.json</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#CFCFC2</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.header</string>
+			<key>scope</key>
+			<string>meta.diff, meta.diff.header</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#75715E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.deleted</string>
+			<key>scope</key>
+			<string>markup.deleted</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#66ccFf</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.inserted</string>
+			<key>scope</key>
+			<string>markup.inserted</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#A6E22E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>diff.changed</string>
+			<key>scope</key>
+			<string>markup.changed</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#E6DB74</string>
+			</dict>
+		</dict>
+	</array>
+	<key>uuid</key>
+	<string>5EAF4173-5DDE-4D64-A1E8-C1671C7EE339</string>
+</dict>
+</plist>
+</xmp>
+
+<h3>move_lines_link_slurp.sublime-macro</h3>
+<xmp>
+[
+	{
+		"args":	{ "link": true },
+		"command": "move_lines"
+	},
+	{
+		"args": null,
+		"command": "slurp_find_string",
+		"context": "window"
+	}
+]
+</xmp>
+
+<h3>run_multiple_commands.py</h3>
+<xmp>
+# run_multiple_commands.py
+import sublime, sublime_plugin
+
+# Takes an array of commands (same as those you'd provide to a key binding) with
+# an optional context (defaults to view commands) & runs each command in order.
+# Valid contexts are 'text', 'window', and 'app' for running a TextCommand,
+# WindowCommands, or ApplicationCommand respectively.
+class RunMultipleCommandsCommand(sublime_plugin.TextCommand):
+  def exec_command(self, command):
+    if not 'command' in command:
+      raise Exception('No command name provided.')
+
+    args = None
+    if 'args' in command:
+      args = command['args']
+
+    # default context is the view since it's easiest to get the other contexts
+    # from the view
+    context = self.view
+    if 'context' in command:
+      context_name = command['context']
+      if context_name == 'window':
+        context = context.window()
+      elif context_name == 'app':
+        context = sublime
+      elif context_name == 'text':
+        pass
+      else:
+        raise Exception('Invalid command context "'+context_name+'".')
+
+    # skip args if not needed
+    if args is None:
+      context.run_command(command['command'])
+    else:
+      context.run_command(command['command'], args)
+
+  def run(self, edit, commands = None):
+    if commands is None:
+      return # not an error
+    for command in commands:
+      self.exec_command(command)
+
+</xmp>
+
+<h3>select_block_from_header.sublime-macro</h3>
+<xmp>
+[
+	{
+		"args":
+		{
+			"by": "lines",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"file": "Packages/cde/select_block_and_header.sublime-macro"
+		},
+		"command": "run_macro_file"
+	}
+]
+</xmp>
+
+<h3>sort.py</h3>
+<xmp>
+cols = ["Red", "orange", "Indigo", "blue"]
+cs = sorted(cols, key = str.casefold)
+print(cs)</xmp>
